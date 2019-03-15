@@ -35,6 +35,14 @@ def login():
     return render_template('login.html', title='Sign In', form=form)
 
 
+@app.route('/gif/inspect/<id>', methods=['GET', 'POST'])
+@login_required
+def gif_inpect(id):
+    gif = Gif.query.get(id)
+    user = gif.author
+    return render_template('gif_inspect.html', gif=gif, user=user)
+
+
 @app.route('/logout')
 def logout():
     logout_user()
