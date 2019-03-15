@@ -15,6 +15,4 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}?charset=utf8mb4"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POOL_RECYCLE = 1800
-    # SQLALCHEMY_ECHO = True
-
 
