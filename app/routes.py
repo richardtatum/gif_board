@@ -1,5 +1,4 @@
-from flask import render_template, flash, redirect, url_for, request, session, abort
-from werkzeug.urls import url_parse
+from flask import render_template, flash, redirect, url_for, request
 from app import app, db
 from app.forms import LoginForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -37,7 +36,7 @@ def login():
 
 @app.route('/gif/inspect/<id>', methods=['GET', 'POST'])
 @login_required
-def gif_inpect(id):
+def gif_inspect(id):
     gif = Gif.query.get(id)
     user = gif.author
     return render_template('gif_inspect.html', gif=gif, user=user)
