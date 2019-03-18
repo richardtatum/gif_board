@@ -4,8 +4,15 @@ html {
 
 body {
     background-color: #13131a;
+
 }
 
 div {
     color: white;
+}
+
+.gif-preview {
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
 }

@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 
-{% block app_content %}
+{% block content %}
+<div class="gif-preview"
   {% for gif in gifs %}
     <a title="Gif ID: {{gif.id}}" href="{{ url_for('gif_inspect', id=gif.id)}}">
       <div class="video-container">
-        <video id="clip{{gif.id}}" style="float: left; width: 23%; margin-right: 1%; margin-bottom: 0.5em;" preload="false" muted="muted" onmouseout="this.pause(); this.currenttime = 0; this.load();" onmouseover="this.play();" poster="{{ gif.frame }}">
+        <video id="clip{{gif.id}}" style="float: left; width: 19%; margin-right: 0.5%; margin-bottom: 0.5em;" preload="false" muted="muted" onmouseout="this.pause(); this.currenttime = 0; this.load();" onmouseover="this.play();" poster="{{ gif.frame }}">
           <source src="{{ gif.webm }}" type="video/webm">
           <source src="{{ gif.mp4 }}" type="video/mp4">
           Your browser does not support the video tag.
@@ -12,4 +13,5 @@
       </div>
     </a>
   {% endfor %}
+</div>
 {% endblock %}
