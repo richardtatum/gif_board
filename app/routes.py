@@ -25,6 +25,9 @@ def login():
         if user is None or not user.check_password(form.password.data):
             flash('Invalid email or password', 'danger')
             return redirect(url_for('login'))
+        if not user.site_admin:
+            flash('Access forbidden.', 'danger')
+            return redirect(url_for('login'))
         login_user(user)
         app.logger.info(f'{user} logged in.')
         next_page = request.args.get('next')
