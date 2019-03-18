@@ -1,18 +1,19 @@
 {% extends "base.html" %}
-  {% block content %}
-    <div class="video-container">
-      <video id="clip{{gif.id}}" style="float: left; width: 19%; margin-right: 0.5%; margin-bottom: 0.5em;" preload="false" muted="muted" onmouseout="this.pause(); this.currenttime = 0; this.load();" onmouseover="this.play();" poster="{{ gif.frame }}">
-        <source src="{{ gif.webm }}" type="video/webm">
-        <source src="{{ gif.mp4 }}" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <div>
-      <p>
-        User: {{user.r6_user}}
-      </p>
-      <p>
-        Created: {{gif.timestamp}}
-      </p>
-    </div>
-  {% endblock %}
+
+{% block app_content %}
+  <div class="video-container">
+    <video id="clip{{ gif.id }}" style="float: left; width: 19%; margin-right: 0.5%; margin-bottom: 0.5em;" preload="false" muted="muted" onmouseout="this.pause(); this.currenttime = 0; this.load();" onmouseover="this.play();" poster="{{ gif.frame }}">
+      <source src="{{ gif.webm }}" type="video/webm">
+      <source src="{{ gif.mp4 }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div>
+    <p>User: {{ user.r6_user }}</p>
+    <p>Gif ID: {{ gif.id }}</p>
+    <p>Created: {{ gif.timestamp }}</p>
+    <p>
+      <a href="{{ url_for('gif_delete', id=gif.id) }}" class="btn btn-danger mr-auto">Delete Gif</a>
+    </p>
+  </div>
+{% endblock %}
