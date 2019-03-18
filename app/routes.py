@@ -45,6 +45,16 @@ def gif_inspect(id):
     return render_template('gif_inspect.html', gif=gif, user=user)
 
 
+@app.route('/gif/delete/<id>')
+@login_required
+def gif_delete(id):
+    gif = Gif.query.filter_by(id=id).first_or_404()
+    db.session.delete(gif)
+    db.session.commit()
+    flash(f'Clip {id} deleted.', 'success')
+    return redirect(url_for('home'))
+
+
 @app.route('/logout')
 def logout():
     logout_user()
