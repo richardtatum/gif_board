@@ -41,9 +41,12 @@
             {% endfor %}
         {% endif %}
         {% endwith %}
-
         {# App content below #}
         {% block app_content %}{% endblock %}
     </div>
 {% endblock %}
 
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+{% endblock %}
