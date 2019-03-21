@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="gif-preview"
+<div class="gif-preview">
   {% for gif in gifs %}
     <a title="Gif ID: {{gif.id}}" href="{{ url_for('gif_inspect', id=gif.id)}}">
       <div class="video-container">
