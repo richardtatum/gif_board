@@ -1,29 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- <div class="gif-preview"> -->
+  <div class="flex-center">
   {% for gif in gifs %}
-  <div class="flip-container" onclick="this.classList.toggle('active');">
-    <div class="flipper">
-      <div class="front">
-        <video id="clip{{gif.id}}" style="width: 480px; height: 320px;" preload="false" muted="muted" onmouseout="this.pause(); this.currenttime = 0; this.load();" onmouseover="this.play();" poster="{{ gif.frame }}">
-          <source src="{{ gif.webm }}" type="video/webm">
-          <source src="{{ gif.mp4 }}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="back">
-        <div>
-        <p>User: {{ gif.author.r6_user }}</p>
-        <p>Gif ID: {{ gif.id }}</p>
-        <p>Created: {{ gif.timestamp }}</p>
-        <p>
-          <a href="{{ url_for('gif_delete', id=gif.id) }}" class="btn btn-danger mr-auto">Delete Gif</a>
-        </p>
+    <div class="flip-container" onclick="this.classList.toggle('active');">
+      <div class="flipper">
+        <div class="front">
+          <video id="clip{{gif.id}}" style="width: 400px; height: 225px;" preload="false" muted="muted" onmouseout="this.pause(); this.currenttime = 0; this.load();" onmouseover="this.play();" poster="{{ gif.frame }}">
+            <source src="{{ gif.webm }}" type="video/webm">
+            <source src="{{ gif.mp4 }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="back">
+          <div>
+          <p>User: {{ gif.author.r6_user }}</p>
+          <p>Gif ID: {{ gif.id }}</p>
+          <p>Created: {{ gif.timestamp }}</p>
+          <p>
+            <a href="{{ url_for('gif_delete', id=gif.id) }}" class="btn btn-danger mr-auto">Delete Gif</a>
+          </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   {% endfor %}
-<!-- </div> -->
+  </div>
 {% endblock %}
