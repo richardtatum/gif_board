@@ -18,6 +18,8 @@ A moderation tool that allow admins to oversee all gifs uploaded to r6.leaderboa
 
 * **Richard Tatum** - *Full stack* - [RichardTatum](https://github.com/richardtatum)
 
+* **Josh Edney** - *System architecture* - [JoshEdney](https://github.com/JoshEdney)
+
 
 
 ## License
