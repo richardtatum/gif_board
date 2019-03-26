@@ -1,6 +1,6 @@
 # Gif Board
 
-A moderation tool to allow admins to oversee all gifs that are uploaded ro r6.leaderboards.io and quickly retrieve information and delete as required.
+A moderation tool that allow admins to oversee all gifs uploaded to r6.leaderboards.io, quickly identify and delete as required.
 
 
 
