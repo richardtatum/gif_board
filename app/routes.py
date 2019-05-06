@@ -5,6 +5,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Gif
 from werkzeug.urls import url_parse
 from datetime import datetime
+from scripts import active_this_week
 
 
 @app.route('/')
@@ -13,7 +14,9 @@ def home():
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
     gifs = Gif.query.all()
-    return render_template('home.html', gifs=gifs)
+    users = len(User.query.all())
+    active = active_this_week()
+    return render_template('home.html', gifs=gifs, users=users, active=active)
 
 
 @app.route('/login', methods=['GET', 'POST'])

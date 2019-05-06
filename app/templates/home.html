@@ -2,6 +2,9 @@
 
 {% block content %}
   <div class="flex-center">
+    <h4>Total users: {{users}} &nbsp; &nbsp; Active this week: {{active}}</h4>
+  </div>
+  <div class="flex-center">
   {% for gif in gifs %}
     <div class="flip-container" onclick="this.classList.toggle('active');">
       <div class="flipper">
