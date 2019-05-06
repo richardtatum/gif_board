@@ -12,6 +12,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     gifs = db.relationship('Gif', backref='author', lazy='dynamic')
     site_admin = db.Column(db.Boolean, unique=False, default=False)
+    last_seen = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
         return f'<User {self.r6_user}>'
